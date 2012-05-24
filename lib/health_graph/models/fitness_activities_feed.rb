@@ -8,10 +8,11 @@ module HealthGraph
       include Model      
       
       hash_attr_accessor :type, :start_time, :total_distance, :duration, :uri
-      
+      coerce_key :start_time, HealthGraph::DateTime
+
       def initialize(hash) 
         populate_from_hash! hash
-      end      
+      end
     end
 
     def initialize(access_token, path, params = {})
@@ -37,6 +38,12 @@ module HealthGraph
 
     def page path
       self.class.new self.access_token, path
+    end
+
+    def unpack_items value
+      value.map do |hash|
+        Item.new hash
+      end
     end
   end
 end

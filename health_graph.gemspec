@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
     "lib/health_graph/api.rb",
     "lib/health_graph/authentication.rb",
     "lib/health_graph/configuration.rb",
+    "lib/health_graph/datetime.rb",
     "lib/health_graph/model.rb",
     "lib/health_graph/models/fitness_activities_feed.rb",
     "lib/health_graph/models/fitness_activity_delete.rb",
