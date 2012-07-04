@@ -14,8 +14,9 @@ require 'health_graph/models/fitness_activities_feed'
 require 'health_graph/models/new_fitness_activity'
 require 'health_graph/models/fitness_activity_update'
 require 'health_graph/models/fitness_activity_delete'
+require 'health_graph/models/fitness_activity'
 
 module HealthGraph
-  extend Configuration 
-  extend Authentication 
+  extend Configuration
+  extend Authentication
 end

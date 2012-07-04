@@ -1,17 +1,24 @@
 module HealthGraph
   class FitnessActivitiesFeed
-    include Model              
-    
+    include Model
+
     hash_attr_accessor :items, :next, :previous, :size
-    
-    class Item 
-      include Model      
-      
+
+    class Item
+      include Model
+
       hash_attr_accessor :type, :start_time, :total_distance, :duration, :uri
       coerce_key :start_time, HealthGraph::DateTime
 
-      def initialize(hash) 
+      def initialize(access_token, hash)
+        self.access_token = access_token
         populate_from_hash! hash
+      end
+
+      def item
+        params = Hash.new
+        params["uri"] = uri
+        HealthGraph::FitnessActivity.new self.access_token, params
       end
     end
 
@@ -42,7 +49,7 @@ module HealthGraph
 
     def unpack_items value
       value.map do |hash|
-        Item.new hash
+        Item.new self.access_token, hash
       end
     end
   end
