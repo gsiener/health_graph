@@ -7,7 +7,7 @@ module HealthGraph
     class Item
       include Model
 
-      hash_attr_accessor :type, :start_time, :total_distance, :duration, :uri
+      hash_attr_accessor :type, :start_time, :total_distance, :duration, :uri, :activity
       coerce_key :start_time, HealthGraph::DateTime
 
       def initialize(access_token, hash)
@@ -19,6 +19,12 @@ module HealthGraph
         params = Hash.new
         params["uri"] = uri
         HealthGraph::FitnessActivity.new self.access_token, params
+      end
+
+      def summary
+        params = Hash.new
+        params["uri"] = uri
+        HealthGraph::FitnessActivitySummary.new self.access_token, params
       end
     end
 
