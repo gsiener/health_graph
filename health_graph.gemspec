@@ -5,9 +5,8 @@
 
 Gem::Specification.new do |s|
   s.name = "health_graph"
-  s.version = "0.5.6"
+  s.version = "0.5.7"
 
-  s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kenny Ma"]
   s.date = "2012-05-11"
   s.description = "This is a wrapper for RunKeeper Health Graph RESTful API."
@@ -31,6 +30,8 @@ Gem::Specification.new do |s|
     "lib/health_graph/datetime.rb",
     "lib/health_graph/model.rb",
     "lib/health_graph/models/fitness_activities_feed.rb",
+    "lib/health_graph/models/fitness_activity.rb",
+    "lib/health_graph/models/fitness_activity_summary.rb",
     "lib/health_graph/models/fitness_activity_delete.rb",
     "lib/health_graph/models/fitness_activity_update.rb",
     "lib/health_graph/models/new_fitness_activity.rb",
@@ -71,8 +72,7 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<health_graph>, [">= 0"])
-      s.add_development_dependency(%q<shoulda>, [">= 0"])
+       s.add_development_dependency(%q<shoulda>, [">= 0"])
       s.add_development_dependency(%q<simplecov>, [">= 0"])
       s.add_development_dependency(%q<jeweler>, [">= 0"])
       s.add_runtime_dependency(%q<oauth2>, [">= 0.5.2"])
@@ -84,8 +84,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<simplecov>, [">= 0"])
       s.add_development_dependency(%q<jeweler>, [">= 0"])
     else
-      s.add_dependency(%q<health_graph>, [">= 0"])
-      s.add_dependency(%q<shoulda>, [">= 0"])
+       s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<simplecov>, [">= 0"])
       s.add_dependency(%q<jeweler>, [">= 0"])
       s.add_dependency(%q<oauth2>, [">= 0.5.2"])
@@ -98,7 +97,6 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<jeweler>, [">= 0"])
     end
   else
-    s.add_dependency(%q<health_graph>, [">= 0"])
     s.add_dependency(%q<shoulda>, [">= 0"])
     s.add_dependency(%q<simplecov>, [">= 0"])
     s.add_dependency(%q<jeweler>, [">= 0"])
@@ -112,4 +110,3 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<jeweler>, [">= 0"])
   end
 end
-
